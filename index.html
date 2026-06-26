@@ -770,18 +770,21 @@
       });
     }
   </script>
-  <!-- Load the Supabase JS library -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ <!-- Load the Supabase JS library FIRST -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-    // Initialize Supabase 
+  <script>
+    // Initialize Supabase using the global library window object
     const SUPABASE_URL = 'https://bdwrarqjaropvmudglvu.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkd3JhcnFqYXJvcHZtdWRnbHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NjMzNTMsImV4cCI6MjA5ODAzOTM1M30.QiMXMgB-V0DZ06C-NNHCS7PVqfGWVdVkvtAyFfljptE';
-    supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    
+    // This creates the client correctly using the loaded library
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // This handles the form submissions and sends them straight to Supabase
     async function handleSubmit(e, source) {
       e.preventDefault();
+      
       const emailInput = document.getElementById(source + '-email');
       const email = emailInput ? emailInput.value.trim() : '';
       if (!email) return;
@@ -791,19 +794,26 @@
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      // Insert directly into your 'subscribers' table
-      const { error } = await supabase
-        .from('subscribers')
-        .insert([{ email: email }]);
+      try {
+        // Insert directly into your 'subscribers' table
+        const { error } = await supabaseClient
+          .from('subscribers')
+          .insert([{ email: email }]);
 
-      if (error) {
-        alert('Error saving email: ' + error.message);
+        if (error) {
+          alert('Error saving email: ' + error.message);
+          btn.disabled = false;
+          btn.textContent = originalText;
+        } else {
+          btn.style.display = 'none';
+          const successDiv = document.getElementById(source + '-success');
+          if (successDiv) successDiv.classList.add('visible');
+          if (emailInput) emailInput.value = '';
+        }
+      } catch (err) {
+        alert('Something went wrong: ' + err.message);
         btn.disabled = false;
         btn.textContent = originalText;
-      } else {
-        btn.style.display = 'none';
-        document.getElementById(source + '-success').classList.add('visible');
-        if (emailInput) emailInput.value = '';
       }
     }
 
@@ -814,7 +824,5 @@
       });
     }
   </script>
-  <!-- Load the Supabase JS library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>
