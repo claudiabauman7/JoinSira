@@ -34,7 +34,7 @@
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
     }
-
+   
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -548,6 +548,21 @@
 </head>
 <body>
 
+<!-- Global Navigation Header -->
+  <header style="background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; font-family: system-ui, -apple-system, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+      <!-- Logo -->
+      <a href="/" style="font-size: 1.5rem; font-weight: 800; color: #111; text-decoration: none; letter-spacing: -0.03em;">SIRA</a>
+      
+      <!-- Navigation Tabs -->
+      <nav style="display: flex; gap: 30px; align-items: center;">
+        <a href="/" style="color: #111; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Home</a>
+        <a href="/story" style="color: #666; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#666'">Our Story</a>
+        <a href="#how-it-works" style="color: #666; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#666'">How It Works</a>
+      </nav>
+    </div>
+  </header>
+  
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Join<span>Sira</span></a>
