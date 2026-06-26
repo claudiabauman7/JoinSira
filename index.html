@@ -776,7 +776,7 @@
     // Initialize Supabase 
     const SUPABASE_URL = 'https://bdwrarqjaropvmudglvu.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkd3JhcnFqYXJvcHZtdWRnbHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NjMzNTMsImV4cCI6MjA5ODAzOTM1M30.QiMXMgB-V0DZ06C-NNHCS7PVqfGWVdVkvtAyFfljptE';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // This handles the form submissions and sends them straight to Supabase
     async function handleSubmit(e, source) {
