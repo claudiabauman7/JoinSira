@@ -769,5 +769,51 @@
       });
     }
   </script>
+  <!-- Load the Supabase JS library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    // Initialize Supabase 
+    const SUPABASE_URL = 'https://bdwrarqjaropvmudglvu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkd3JhcnFqYXJvcHZtdWRnbHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NjMzNTMsImV4cCI6MjA5ODAzOTM1M30.QiMXMgB-V0DZ06C-NNHCS7PVqfGWVdVkvtAyFfljptE';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // This handles the form submissions and sends them straight to Supabase
+    async function handleSubmit(e, source) {
+      e.preventDefault();
+      const emailInput = document.getElementById(source + '-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+      if (!email) return;
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      // Insert directly into your 'subscribers' table
+      const { error } = await supabase
+        .from('subscribers')
+        .insert([{ email: email }]);
+
+      if (error) {
+        alert('Error saving email: ' + error.message);
+        btn.disabled = false;
+        btn.textContent = originalText;
+      } else {
+        btn.style.display = 'none';
+        document.getElementById(source + '-success').classList.add('visible');
+        if (emailInput) emailInput.value = '';
+      }
+    }
+
+    function copyLink(btn) {
+      navigator.clipboard.writeText('https://joinsira.com').then(() => {
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy link`; }, 2000);
+      });
+    }
+  </script>
+  <!-- Load the Supabase JS library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>
