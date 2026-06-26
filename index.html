@@ -187,6 +187,17 @@
       line-height: 1.4;
     }
 
+    .stat-source {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(245,239,230,0.3);
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* ── STORY CALLOUT ── */
     .story {
       max-width: 760px;
@@ -232,6 +243,186 @@
       font-style: italic;
       color: var(--canopy);
       line-height: 1.55;
+    }
+
+    /* ── PLATFORM ── */
+    .platform {
+      background: var(--canopy);
+      padding: 6rem 2rem;
+    }
+
+    .platform-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .platform-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .platform-header .section-eyebrow { color: var(--gold); }
+
+    .platform-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--ivory);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .platform-header p {
+      margin-top: 1rem;
+      font-size: 1.0625rem;
+      color: rgba(245,239,230,0.6);
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .platform-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .platform-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(245,239,230,0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .platform-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .platform-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+    }
+
+    .platform-card p {
+      font-size: 0.9375rem;
+      color: rgba(245,239,230,0.65);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .platform-card-detail {
+      font-size: 0.8125rem;
+      color: rgba(245,239,230,0.4);
+      line-height: 1.6;
+      border-top: 1px solid rgba(245,239,230,0.08);
+      padding-top: 1rem;
+    }
+
+    /* ── JOURNEY / YELLOW BRICK ROAD ── */
+    .journey {
+      background: var(--canopy);
+      padding: 0 2rem 6rem;
+    }
+
+    .journey-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .journey-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .journey-header .section-eyebrow { color: var(--gold); }
+
+    .journey-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--ivory);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .steps {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .step-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      color: var(--canopy);
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-line {
+      width: 2px;
+      flex: 1;
+      background: rgba(244,197,66,0.25);
+      margin: 4px 0;
+      min-height: 32px;
+    }
+
+    .step:last-child .step-line { display: none; }
+
+    .step-body {
+      padding: 0.25rem 0 2.5rem;
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--ivory);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .step-desc {
+      font-size: 0.9375rem;
+      color: rgba(245,239,230,0.62);
+      line-height: 1.7;
+    }
+
+    .step-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(42,157,143,0.18);
+      color: var(--teal);
     }
 
     /* ── WAITLIST ── */
@@ -373,6 +564,7 @@
       .stat-strip-inner { grid-template-columns: 1fr 1fr; }
       .hero-form, .waitlist-form { flex-direction: column; align-items: stretch; }
       .hero-form input[type="email"], .waitlist-form input[type="email"], .btn-primary { width: 100%; }
+      .platform-cards { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -382,6 +574,7 @@
 </head>
 <body>
 
+  <!-- NAV -->
   <header style="background: var(--ivory); border-bottom: 1px solid rgba(28,43,42,0.08); position: sticky; top: 0; z-index: 9999; font-family: var(--sans);">
     <div style="max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
       <a href="index.html" style="font-family: var(--serif); font-size: 1.5rem; font-weight: 800; color: var(--canopy); text-decoration: none; letter-spacing: -0.01em;">Sira<span style="color: var(--orange);">.</span></a>
@@ -394,11 +587,12 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <span class="hero-eyebrow">Your world, unlocked.</span>
+    <span class="hero-eyebrow">Early access open</span>
     <h1>Your birthplace is not<br><em>the end of your story</em></h1>
     <p class="hero-sub">
-      Sira is a word with many meanings. In Arabic, a life's unfolding story. Across West Africa, The Way. In Sanskrit, the veins that carry life forward. And now, Sira is a global movement closing the gap between talent and opportunity. We are here to make sure your birthplace is never the end of your story.
+      Tell us where you want to go. Sira maps every real path available to your passport — the requirements, the real odds, and the community that's already made the journey.
     </p>
     <form class="hero-form" id="hero-form" onsubmit="handleSubmit(event, 'hero')">
       <input type="email" id="hero-email" placeholder="your@email.com" required autocomplete="email" />
@@ -411,6 +605,7 @@
     </div>
   </section>
 
+  <!-- STAT STRIP -->
   <section class="stat-strip" aria-label="The scale of the problem">
     <div class="stat-strip-inner">
       <div class="stat-item">
@@ -418,20 +613,22 @@
         <div class="stat-label">countries ranked by<br>passport power</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">166</div>
-        <div class="stat-label">visa-free destinations<br>for the top passport</div>
+        <div class="stat-number">194</div>
+        <div class="stat-label">visa-free destinations<br>for the strongest passport</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">28</div>
-        <div class="stat-label">visa-free destinations<br>for the bottom passport</div>
+        <div class="stat-label">visa-free destinations<br>for the weakest passport</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">1</div>
-        <div class="stat-label">factor that determines<br>which world you enter</div>
+        <div class="stat-number">700%</div>
+        <div class="stat-label">gap in global freedom<br>based on birthplace alone</div>
       </div>
     </div>
+    <p class="stat-source">Source: Henley Passport Index 2024</p>
   </section>
 
+  <!-- FOUNDING STORY CALLOUT -->
   <section class="story">
     <p class="section-eyebrow">Why Sira exists</p>
     <h2>The fishing rod and the ocean</h2>
@@ -440,110 +637,120 @@
         <p>"You cannot learn to fish in the desert. Some people know exactly what they would do if only someone handed them the fishing rod and showed them the way to the ocean."</p>
       </blockquote>
       <p style="margin-bottom: 2rem;">
-        Sira exists to build that map — the data infrastructure, the verified community protocols, and the legal framework that connects human talent to global opportunities, regardless of the passport you hold.
+        Sira exists to build that map — the tools, the community, and the human bridge that connects talent to opportunity, regardless of the passport you hold.
       </p>
-      <a href="story.html" class="btn-primary" style="text-decoration: none; display: inline-block;">Read Our Full Story →</a>
+      <a href="story.html" class="btn-primary" style="text-decoration: none; display: inline-block;">Read our full story →</a>
     </div>
   </section>
 
-  <section id="our-platform" style="padding: 100px 20px; background: var(--canopy); font-family: var(--sans);">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      
-      <div style="text-align: center; margin-bottom: 60px;">
-        <span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 15px;">The Sira Architecture</span>
-        <h2 style="font-family: var(--serif); font-size: clamp(1.75rem, 4vw, 2.75rem); color: var(--ivory); margin: 0; line-height: 1.2;">Inside the Platform</h2>
+  <!-- PLATFORM -->
+  <section id="our-platform" class="platform">
+    <div class="platform-inner">
+
+      <div class="platform-header">
+        <p class="section-eyebrow">How Sira works</p>
+        <h2>Three tools. One clear path.</h2>
+        <p>Most people navigating international mobility face the same three walls: they don't know what's actually possible, they can't trust the information they find, and they can't afford the gaps. Sira is built to knock down all three.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px;">
-        
-        <div style="background: rgba(255,255,255,0.03); padding: 40px; border-radius: 16px; border: 1px solid rgba(245,239,230,0.1); display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="font-size: 1.8rem; margin-bottom: 15px;">🧠</div>
-            <h3 style="font-family: var(--serif); font-size: 1.4rem; color: var(--ivory); margin: 0 0 12px 0;">1. Pathfinder AI</h3>
-            <p style="color: rgba(245,239,230,0.7); line-height: 1.6; font-size: 0.95rem; margin: 0 0 20px 0;">
-              An intelligent system matching your custom metrics—skills, certificates, language profile, and assets—against changing official global immigration codex filters.
-            </p>
-          </div>
-          <div style="background: rgba(244,197,66,0.1); border: 1px dashed var(--gold); padding: 15px; border-radius: 8px; font-size: 0.85rem; color: var(--gold);">
-            <strong>Dynamic Action:</strong> Builds custom preparation plans automatically to step up applicant verification readiness scores.
-          </div>
+      <div class="platform-cards">
+
+        <div class="platform-card">
+          <div class="platform-card-icon">🧭</div>
+          <h3>Pathfinder</h3>
+          <p>Tell us your passport, your destination, and your goal — work, study, visit, or stay. Pathfinder shows you the real options open to you, the documents you'll need, and the honest odds of success.</p>
+          <div class="platform-card-detail">No guesswork. No expensive consultants. Just a clear list of what you need and what to do next.</div>
         </div>
 
-        <div style="background: rgba(255,255,255,0.03); padding: 40px; border-radius: 16px; border: 1px solid rgba(245,239,230,0.1); display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="font-size: 1.8rem; margin-bottom: 15px;">🛡️</div>
-            <h3 style="font-family: var(--serif); font-size: 1.4rem; color: var(--ivory); margin: 0 0 12px 0;">2. The Verified Bridge</h3>
-            <p style="color: rgba(245,239,230,0.7); line-height: 1.6; font-size: 0.95rem; margin: 0 0 20px 0;">
-              Dismantling high-risk exploitation found in unverified public forums. Every single user and path sponsor goes through bank-grade biometric validation protocols.
-            </p>
-          </div>
-          <div style="background: rgba(42,157,143,0.1); border: 1px dashed var(--teal); padding: 15px; border-radius: 8px; font-size: 0.85rem; color: var(--teal);">
-            <strong>Clean Corridors:</strong> Partner entities, consular offices, and foundations interact directly with clean, tamper-proof profiles.
-          </div>
+        <div class="platform-card">
+          <div class="platform-card-icon">🤝</div>
+          <h3>The Verified Community</h3>
+          <p>Connect with people who've made the exact same journey from the exact same starting point. Real accounts of what the embassies actually want, what worked, and what the official guidance won't tell you.</p>
+          <div class="platform-card-detail">Every contributor is verified. No scams, no misinformation, no one selling you a service you don't need.</div>
         </div>
 
-        <div style="background: rgba(255,255,255,0.03); padding: 40px; border-radius: 16px; border: 1px solid rgba(245,239,230,0.1); display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="font-size: 1.8rem; margin-bottom: 15px;">🌐</div>
-            <h3 style="font-family: var(--serif); font-size: 1.4rem; color: var(--ivory); margin: 0 0 12px 0;">3. Path Sponsorship</h3>
-            <p style="color: rgba(245,239,230,0.7); line-height: 1.6; font-size: 0.95rem; margin: 0 0 20px 0;">
-              Decoupling capital friction from absolute capability. Global networks and impact pools fund legal applications or flight resources directly for certified groups.
-            </p>
-          </div>
-          <div style="background: rgba(232,82,26,0.1); border: 1px dashed var(--orange); padding: 15px; border-radius: 8px; font-size: 0.85rem; color: var(--orange);">
-            <strong>Escrow Safety:</strong> All funding moves straight into verified application pipelines—never liquid money transfers.
-          </div>
+        <div class="platform-card">
+          <div class="platform-card-icon">🌍</div>
+          <h3>Path Sponsorship</h3>
+          <p>Sometimes the only thing standing between someone and their visa is a translation fee, a document cost, or a flight. Sira's sponsorship layer lets communities and supporters fund those gaps directly.</p>
+          <div class="platform-card-detail">All funding goes straight to verified application costs — never cash transfers to individuals.</div>
         </div>
 
       </div>
 
-      <div style="background: var(--ivory); border-radius: 20px; padding: 50px 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.02);">
-        <h3 style="font-family: var(--serif); font-size: 1.8rem; color: var(--canopy); text-align: center; margin: 0 0 10px 0;">The User Milestone Journey</h3>
-        <p style="color: var(--charcoal); text-align: center; margin: 0 0 50px 0; font-size: 1rem;">Standardizing messy administrative loops into simple visual coordinates.</p>
-        
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px;">
-          
-          <div style="flex: 1; min-width: 200px; background: #ffffff; padding: 24px; border-radius: 12px; border-top: 4px solid var(--orange);">
-            <div style="font-size: 0.75rem; color: var(--orange); font-weight: 700; text-transform: uppercase; margin-bottom: 5px;">01 / profile</div>
-            <h4 style="font-family: var(--serif); font-size: 1.15rem; color: var(--canopy); margin: 0 0 8px 0;">Data Intake</h4>
-            <p style="color: var(--charcoal); font-size: 0.85rem; line-height: 1.5; margin: 0;">Compile structural credentials onto your global digital asset layer.</p>
-          </div>
-
-          <div style="flex: 1; min-width: 200px; background: #ffffff; padding: 24px; border-radius: 12px; border-top: 4px solid var(--teal);">
-            <div style="font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: 5px;">02 / KYC trust</div>
-            <h4 style="font-family: var(--serif); font-size: 1.15rem; color: var(--canopy); margin: 0 0 8px 0;">Biometric Check</h4>
-            <p style="color: var(--charcoal); font-size: 0.85rem; line-height: 1.5; margin: 0;">Verify structural profile authenticity to secure platform networks.</p>
-          </div>
-
-          <div style="flex: 1; min-width: 200px; background: #ffffff; padding: 24px; border-radius: 12px; border-top: 4px solid var(--gold);">
-            <div style="font-size: 0.75rem; color: var(--gold); font-weight: 700; text-transform: uppercase; margin-bottom: 5px;">03 / mapping</div>
-            <h4 style="font-family: var(--serif); font-size: 1.15rem; color: var(--canopy); margin: 0 0 8px 0;">AI Optimization</h4>
-            <p style="color: var(--charcoal); font-size: 0.85rem; line-height: 1.5; margin: 0;">Match and configure dynamic documentation directly to embassy metrics.</p>
-          </div>
-
-          <div style="flex: 1; min-width: 200px; background: #ffffff; padding: 24px; border-radius: 12px; border-top: 4px solid var(--canopy);">
-            <div style="font-size: 0.75rem; color: var(--canopy); font-weight: 700; text-transform: uppercase; margin-bottom: 5px;">04 / corridor</div>
-            <h4 style="font-family: var(--serif); font-size: 1.15rem; color: var(--canopy); margin: 0 0 8px 0;">Path Connection</h4>
-            <p style="color: var(--charcoal); font-size: 0.85rem; line-height: 1.5; margin: 0;">Unlock matched funding bridges or submit securely to destinations.</p>
-          </div>
-
+      <!-- FIVE-STEP JOURNEY -->
+      <div class="journey-inner">
+        <div class="journey-header">
+          <p class="section-eyebrow">The journey</p>
+          <h2>Five steps from here to there</h2>
         </div>
 
-        <div style="margin-top: 40px; background: var(--canopy); color: var(--ivory); padding: 30px; border-radius: 12px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
-          <div>
-            <h4 style="font-family: var(--serif); margin: 0 0 5px 0; font-size: 1.25rem;">The Clearance Finish Line</h4>
-            <p style="margin: 0; color: rgba(245,239,230,0.6); font-size: 0.9rem;">Automated tracking logs clear applicants to step straight onto their journey paths.</p>
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <div class="step-spine">
+              <div class="step-dot">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-title">Tell us where you want to go</h3>
+              <p class="step-desc">Share your passport, your destination, and your purpose — work, study, visit, or stay. Sira maps the realistic paths open to you.</p>
+              <span class="step-badge">Launching soon</span>
+            </div>
           </div>
-          <div style="border: 1px solid rgba(245,239,230,0.15); background: rgba(255,255,255,0.05); padding: 12px 24px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; color: var(--gold);">
-            ✨ Potential has no borders.
+
+          <div class="step" role="listitem">
+            <div class="step-spine">
+              <div class="step-dot">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-title">Run the visa pre-check</h3>
+              <p class="step-desc">Our tool surfaces the real requirements, the actual rejection rates, and the gap between your documents and what the embassy wants to see.</p>
+              <span class="step-badge">In development</span>
+            </div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="step-spine">
+              <div class="step-dot">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-title">Connect with the community</h3>
+              <p class="step-desc">Find people who've made the same journey from the same starting point. Real accounts of what worked, what didn't, and what the system won't tell you.</p>
+              <span class="step-badge">Coming next</span>
+            </div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="step-spine">
+              <div class="step-dot">4</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-title">Fund the gaps that matter</h3>
+              <p class="step-desc">When documents, translation fees, or legal support stand between someone and their visa, Sira's sponsorship layer helps communities fill those gaps together.</p>
+              <span class="step-badge">On the horizon</span>
+            </div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="step-spine">
+              <div class="step-dot">5</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3 class="step-title">Move — and open the door behind you</h3>
+              <p class="step-desc">Every person who makes it through becomes a guide for someone still at the gate. Your story is the map for the next person.</p>
+            </div>
           </div>
         </div>
-
       </div>
 
     </div>
   </section>
 
+  <!-- WAITLIST -->
   <section class="waitlist" id="waitlist">
     <div class="waitlist-inner">
       <p class="section-eyebrow">Early access</p>
@@ -562,6 +769,7 @@
     </div>
   </section>
 
+  <!-- SHARE -->
   <section class="share">
     <p>If this story moved you, move it forward.</p>
     <div class="share-buttons">
@@ -580,6 +788,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2026 JoinSira &nbsp;·&nbsp; <a href="mailto:hello@joinsira.com">hello@joinsira.com</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
   </footer>
@@ -587,17 +796,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    // Initialize Supabase using the global library window object
     const SUPABASE_URL = 'https://bdwrarqjaropvmudglvu.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkd3JhcnFqYXJvcHZtdWRnbHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NjMzNTMsImV4cCI6MjA5ODAzOTM1M30.QiMXMgB-V0DZ06C-NNHCS7PVqfGWVdVkvtAyFfljptE';
-    
-    // This creates the client correctly using the loaded library
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // This handles the form submissions and sends them straight to Supabase
     async function handleSubmit(e, source) {
       e.preventDefault();
-      
       const emailInput = document.getElementById(source + '-email');
       const email = emailInput ? emailInput.value.trim() : '';
       if (!email) return;
@@ -608,7 +812,6 @@
       btn.textContent = 'Sending…';
 
       try {
-        // Insert directly into your 'subscribers' table
         const { error } = await supabaseClient
           .from('subscribers')
           .insert([{ email: email }]);
@@ -637,5 +840,6 @@
       });
     }
   </script>
+
 </body>
 </html>
