@@ -8,11 +8,20 @@
 </head>
 <body style="margin: 0; padding: 0; background-color: #fff; font-family: system-ui, -apple-system, sans-serif; color: #333; -webkit-font-smoothing: antialiased;">
 
-  <!-- Navigation Bar -->
-  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid #eee; max-width: 1200px; margin: 0 auto;">
-    <a href="/" style="font-size: 1.5rem; font-weight: 800; color: #111; text-decoration: none; letter-spacing: -0.03em;">SIRA</a>
-    <a href="/" style="color: #666; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid #ddd; padding: 8px 16px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='none'">← Back to Home</a>
-  </nav>
+<!-- Global Navigation Header -->
+  <header style="background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; font-family: system-ui, -apple-system, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+      <!-- Logo -->
+      <a href="/" style="font-size: 1.5rem; font-weight: 800; color: #111; text-decoration: none; letter-spacing: -0.03em;">SIRA</a>
+      
+      <!-- Navigation Tabs -->
+      <nav style="display: flex; gap: 30px; align-items: center;">
+        <a href="/" style="color: #666; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#666'">Home</a>
+        <a href="/story" style="color: #111; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Our Story</a>
+        <a href="/#how-it-works" style="color: #666; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#666'">How It Works</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main Story Content Section -->
   <section style="padding: 80px 20px 120px 20px;">
